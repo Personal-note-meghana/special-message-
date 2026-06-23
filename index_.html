@@ -1,218 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Special Message</title>
-<style>
-  @font-face {
-    font-family: 'Grape Nuts';
-    src: url('GrapeNuts-Regular.woff2') format('woff2'),
-         url('GrapeNuts-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  body {
-    margin: 0;
-    font-family: 'Grape Nuts', sans-serif;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: white;
-    overflow-y: auto;
-    scroll-behavior: smooth;
-  }
-
-  /* Lock scroll when overlay is active */
-  body.no-scroll {
-    overflow: hidden;
-  }
-
-  #container {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px 20px;
-  }
-
-  /* Tap overlay */
-  #tapOverlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(15,32,39,0.95);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 100;
-    transition: opacity 1s ease;
-  }
-
-  #tapOverlay h1 {
-    font-size: 36px;
-    text-align: center;
-    text-shadow: 0 0 20px rgba(255,255,255,0.3);
-    letter-spacing: 1px;
-  }
-
-  /* Message container */
-  #messageContent {
-    max-width: 800px;
-    font-size: 28px;
-    line-height: 1.8;
-    text-align: center;
-    opacity: 0;  /* hidden initially */
-    transition: opacity 2s ease;
-  }
-
-  #messageContent.show { opacity: 1; }
-
-  /* Fade animation for paragraphs and signature */
-  .fade, .signature {
-    opacity: 0;
-    transform: translateY(50px);
-    margin-bottom: 30px;
-  }
-
-  .fade.animate, .signature.animate {
-    animation: fadeInUp 3s ease forwards;
-  }
-
-  .signature { 
-    font-size: 32px; 
-    margin-top: 40px;
-    letter-spacing: 1px;
-    text-shadow: 0 0 15px rgba(255,255,255,0.3);
-    margin-bottom: 0;
-  }
-
-  @keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(50px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Particles */
-  .particle {
-    position: absolute;
-    width: 6px; height: 6px;
-    background: rgba(255,255,255,0.2);
-    border-radius: 50%;
-    animation: float 12s linear infinite;
-    opacity: 0;
-    transition: opacity 2s ease;
-  }
-
-  @keyframes float {
-    0% { transform: translateY(0) translateX(0); }
-    50% { transform: translateY(-500px) translateX(100px); }
-    100% { transform: translateY(0) translateX(0); }
-  }
-
-  /* Responsive adjustments for mobile */
-  @media (max-width: 600px) {
-    #messageContent {
-      font-size: 24px;
-      line-height: 2.2;
-    }
-
-    .fade, .signature {
-      margin-bottom: 50px;
-      transform: translateY(60px);
-    }
-
-    .signature {
-      font-size: 28px;
-      margin-top: 60px;
-    }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Intelligence Report: May 2026</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f7f6;
+        }
+        header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        section {
+            background: #fff;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #2980b9;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #e67e22;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        .math-block {
+            background: #f9f9f9;
+            padding: 15px;
+            border-left: 5px solid #3498db;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 10px 0;
+        }
+    </style>
 </head>
 <body>
 
-<div id="container">
-  <!-- Tap overlay -->
-  <div id="tapOverlay"><h1>Please tap here</h1></div>
+<header>
+    <h1>AI Intelligence Report: May 2026</h1>
+    <p>The Shift from Chatbots to Agentic Infrastructure</p>
+</header>
 
-  <!-- Music -->
-  <audio id="music" loop>
-    <source src="music.mp3" type="audio/mpeg">
-  </audio>
+<section>
+    <h2>1. The GPT-5.5 "Spud" Era (OpenAI)</h2>
+    <p>OpenAI released <strong>GPT-5.5</strong>, prioritizing autonomous reasoning over simple text generation. Key highlights include:</p>
+    <ul>
+        <li><strong>Daybreak Initiative:</strong> A cybersecurity model that proactively patches vulnerabilities.</li>
+        <li><strong>The "Goblin Bug":</strong> An RL (Reinforcement Learning) quirk where the model became obsessed with fantasy metaphors. This was identified as <em>Reward Signal Over-optimization</em>, where the model used "flavorful language" as a shortcut to score higher in personality benchmarks.</li>
+    </ul>
+</section>
 
-  <!-- Message -->
-  <div id="messageContent">
-    <p class="fade" data-delay="0.5s">Hi Meghana,</p>
-    <p class="fade" data-delay="4.5s">
-      Even though we haven’t interacted directly yet, I’ve had the chance to understand a bit about you, enough in fact that I felt this is worth making an effort for. I am writing to you because I believe some decisions deserve that extra step, especially when there is a possibility of something meaningful.
-    </p>
-    <p class="fade" data-delay="7s">
-      I understand your hesitation about proceeding further, 
-      and I respect your perspective. At the same time, before you arrive at a final decision, I would request you to perhaps give it another thought. 
-    </p>
-    <p class="fade" data-delay="9.5s">
-      The reasons in my mind are clear as to why I feel this could be a good match, and I generally place a lot of thought into my decisions. 
-      If you do choose to reconsider, I would genuinely look forward to it. I also want to assure you of a few things from my side: 
-      I will always treat you with love and respect, I will value your aspirations, and be someone you can count on. And in my life, I generally have the perspective of ‘our family’ and never ‘your family’ and ‘my family’.
-    </p>
-    <p class="fade" data-delay="12s">
-      While your achievements are remarkable, my inclination toward you is rooted in something deeper, something more important. It is about the 'before' and 'after' of your success: In my eyes, success matters, but it’s the pursuit, the journey, and the choices along the way that shape a person, and the way they carry themsleves after reaching the summit quietly reveals who they truly are. I’ve liked both in your case. I truly mean everything I’ve said on this page and you’d understand that better once you know me.
-    </p>
-    <p class="fade" data-delay="14.5s">
-      I could try a hundred different ways to convey, and still fall short, but let me put it this way: If you choose to come into my world, I will be for you what my father had always been for my mother, and he's the best I've seen in that regard.
-    </p>
-    <p class="fade" data-delay="17s">
-      I hope you consider giving this some sincere,heartful thought one more time, and if it still feel this is not the right direction for you, I will completely respect your decision and wish you the best. 
-      However, if it feels to you like there might be a possibility, I would welcome the chance that a conversation could open doors that could mean a lot to both of us.
-      If this resonates with you, you may invite me for a cup of coffee, and I’ll meet you whenever it is convenient for both of us.<br>
-      <br>
-      Take your time, and choose what feels best.
-    </p>
-    <div class="signature" data-delay="20s">- Chaitanya</div>
-  </div>
-
-  <!-- Particles -->
-  <div class="particle" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
-  <div class="particle" style="top: 25%; left: 70%; animation-delay: 2s;"></div>
-  <div class="particle" style="top: 40%; left: 50%; animation-delay: 4s;"></div>
-  <div class="particle" style="top: 55%; left: 35%; animation-delay: 1s;"></div>
-  <div class="particle" style="top: 70%; left: 80%; animation-delay: 3s;"></div>
-  <div class="particle" style="top: 85%; left: 10%; animation-delay: 5s;"></div>
-</div>
-
-<script>
-const overlay = document.getElementById('tapOverlay');
-const message = document.getElementById('messageContent');
-const music = document.getElementById('music');
-const particles = document.querySelectorAll('.particle');
-
-// Lock scroll initially
-document.body.classList.add('no-scroll');
-
-overlay.addEventListener('click', () => {
-  overlay.style.opacity = 0;
-  
-  setTimeout(() => {
-    overlay.style.display = 'none';
+<section>
+    <h2>2. Anthropic & SpaceX: The "Orbital-Grade" Leap</h2>
+    <p>Anthropic secured a massive compute deal via SpaceX's <strong>Colossus 1</strong> facility, featuring 220,000 NVIDIA GPUs and 300MW of power.</p>
     
-    // Unlock scroll and reset to top
-    document.body.classList.remove('no-scroll');
-    window.scrollTo(0, 0);
+    <h3>What is "Orbital-Grade"?</h3>
+    <p>This refers to terrestrial hardware built with aerospace-standard resilience:</p>
+    <ul>
+        <li><strong>Radiation Hardening:</strong> Protection against bit-flips caused by cosmic rays, utilizing Starlink-derived error correction.</li>
+        <li><strong>Raptor-Class Cooling:</strong> High-pressure liquid cooling manifolds modeled after SpaceX rocket engines to manage immense heat density.</li>
+        <li><strong>Laser-Link Connectivity:</strong> Data synchronization using Starlink’s inter-satellite laser links to bypass terrestrial fiber bottlenecks.</li>
+    </ul>
 
-    message.classList.add('show');
-    particles.forEach(p => p.style.opacity = 1);
-    
-    music.play().catch(err => console.log('Music play failed:', err));
+    <div class="math-block">
+        <strong>Power Math:</strong><br>
+        $$220,000 \text{ GPUs} \times 700\text{W (Peak)} = 154\text{MW}$$
+        Remaining 146MW is dedicated to cooling and PUE (Power Usage Effectiveness) overhead.
+    </div>
+</section>
 
-    // Trigger paragraph animations
-    const elements = message.querySelectorAll('.fade, .signature');
-    elements.forEach(el => {
-      const delay = el.getAttribute('data-delay') || '0s';
-      el.style.animationDelay = delay;
-      el.classList.add('animate');
-    });
-  }, 1000);
-});
-</script>
+<section>
+    <h2>3. Google & Open Source Evolution</h2>
+    <p>Google launched <strong>Gemma 4</strong> with a massive <strong>256K Context Window</strong>.</p>
+    <ul>
+        <li><strong>How it works:</strong> Utilizes <em>Sliding-Window Attention</em> and <em>Shared KV Caching</em> to reduce memory requirements, allowing long-context models to run on local developer workstations rather than just massive server farms.</li>
+        <li><strong>Gemini 3.1:</strong> Introduced multi-step app automation for mobile, enabling "agentic" control over native Android applications.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>4. Subscriber Impact & Market Shifts</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>Status (Pre-May 2026)</th>
+                <th>Status (Current)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Claude Pro Limits</td>
+                <td>Restricted during Peak Hours</td>
+                <td><strong>Doubled</strong> (90 Opus / 450 Sonnet)</td>
+            </tr>
+            <tr>
+                <td>Peak Throttling</td>
+                <td>Dynamic reduction (8AM - 2PM)</td>
+                <td><strong>Permanently Removed</strong></td>
+            </tr>
+            <tr>
+                <td>Compute Source</td>
+                <td>Shared Cloud (AWS/Google)</td>
+                <td>Dedicated (SpaceX Colossus 1)</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<footer>
+    <p style="text-align: center; color: #7f8c8d; font-size: 0.9em;">
+        <em>Report generated based on the May 2026 AI Intelligence briefing.</em>
+    </p>
+</footer>
 
 </body>
 </html>
